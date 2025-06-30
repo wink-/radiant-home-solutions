@@ -1,0 +1,29 @@
+baseURL = 'https://radianthomesolutions.com/'
+languageCode = 'en-us'
+title = 'Radiant Home Solutions'
+theme = 'ananke'
+
+[params]
+  subtitle = "Professional Handyman Services"
+  author = "Radiant Home Solutions"
+  description = "Quality home repair, maintenance, and improvement services. From small fixes to major renovations, we bring expertise and reliability to every project."
+  phone = "(555) 123-4567"
+  email = "info@radianthomesolutions.com"
+  
+[menu]
+  [[menu.main]]
+    name = "Services"
+    url = "/services/"
+    weight = 1
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 2
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
+  [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 4
