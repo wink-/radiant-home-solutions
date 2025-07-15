@@ -1,14 +1,28 @@
 baseURL = 'https://radianthomesolutions.com/'
 languageCode = 'en-us'
-title = 'Radiant Home Solutions'
+title = 'Small Job Handyman Services | Radiant Home Solutions'
 theme = 'ananke'
 
 [params]
-  subtitle = "Professional Handyman Services"
+  subtitle = "Small Job Specialists - No Job Too Small!"
   author = "Radiant Home Solutions"
-  description = "Quality home repair, maintenance, and improvement services. From small fixes to major renovations, we bring expertise and reliability to every project."
+  description = "Professional handyman specializing in small jobs and quick repairs in Horseheads, Corning, and Elmira NY. Same-day service for minor home fixes, installations, and maintenance. No job too small!"
   phone = "(555) 123-4567"
   email = "info@radianthomesolutions.com"
+  keywords = "small handyman jobs, quick home repairs, same day service, local handyman, minor fixes, honey do list, Horseheads handyman, Corning handyman, Elmira handyman, Chemung County handyman, Southern Tier handyman, Finger Lakes handyman"
+  
+# SEO Settings
+enableRobotsTXT = true
+enableGitInfo = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
   
 [menu]
   [[menu.main]]
@@ -16,14 +30,18 @@ theme = 'ananke'
     url = "/services/"
     weight = 1
   [[menu.main]]
-    name = "Projects"
-    url = "/projects/"
+    name = "Small Jobs"
+    url = "/small-jobs/"
     weight = 2
+  [[menu.main]]
+    name = "Service Areas"
+    url = "/areas-served/"
+    weight = 3
   [[menu.main]]
     name = "About"
     url = "/about/"
-    weight = 3
+    weight = 4
   [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 4
+    weight = 5

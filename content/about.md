@@ -1,19 +1,22 @@
 +++
 date = '2025-06-29T22:05:09-04:00'
 draft = false
-title = 'About Radiant Home Solutions'
-description = 'Professional handyman and home improvement services. Quality craftsmanship, reliable service, and competitive pricing for all your home maintenance needs.'
+title = 'About Our Small Job Handyman Services | Local & Reliable'
+description = 'Learn about our small job handyman services. Local, licensed, and specializing in quick repairs and minor home improvements. No job too small!'
+keywords = 'local handyman, small job specialist, licensed handyman, reliable home repairs'
 +++
 
 # About Radiant Home Solutions
 
-**Your trusted partner for quality home improvements and reliable handyman services.**
+**Your local small job specialists - where no repair is too small and every customer matters.**
 
 ## Our Story
 
-Radiant Home Solutions was founded on a simple principle: every home deserves quality craftsmanship and honest, reliable service. With years of experience in construction, electrical work, and general home maintenance, we bring professional expertise to projects both large and small.
+Radiant Home Solutions was founded on a simple principle: **no job is too small for professional attention**. We noticed that many homeowners struggled to find reliable help for small repairs and minor improvements - the kind of tasks that other contractors consider "not worth their time."
 
-We understand that your home is your most important investment. That's why we treat every project with the care and attention it deserves, delivering results that not only meet your immediate needs but add long-term value to your property.
+We built our business specifically to fill this gap. Whether you need a single picture hung or want to tackle your entire honey-do list, we bring the same professional approach and quality craftsmanship to every job, regardless of size.
+
+**We believe that small jobs done right prevent big problems later.**
 
 ## Our Services
 
@@ -74,10 +77,10 @@ We stand behind our work. Follow-up to ensure your complete satisfaction and add
 
 ## Service Areas
 
-**Primary Service Area**: [Your Local Area]
-**Additional Areas**: Contact us to discuss availability in surrounding communities
+**Primary Service Area**: Horseheads, Corning, Elmira, Big Flats, Painted Post, and Southport
+**Additional Areas**: Watkins Glen, Bath, Montour Falls, Wellsburg, Millport, Pine City, and throughout Chemung County
 
-*We believe in supporting our local community and building lasting relationships with our neighbors.*
+*We're proud to serve the Southern Tier community and build lasting relationships with our neighbors throughout the Finger Lakes region.*
 
 ## Professional Standards
 

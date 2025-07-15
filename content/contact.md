@@ -1,13 +1,14 @@
 +++
 date = '2025-06-29T22:05:09-04:00'
 draft = false
-title = 'Contact Radiant Home Solutions'
-description = 'Get in touch with Radiant Home Solutions for your home improvement needs. Free estimates, prompt service, and professional craftsmanship.'
+title = 'Contact Us for Small Job Handyman Services | Same Day Service'
+description = 'Contact us for small handyman jobs and quick repairs. Same-day service available. Call, text, or email for free estimates on all small home improvement projects.'
+keywords = 'contact handyman, same day service, small job estimates, local handyman contact'
 +++
 
-# Contact Radiant Home Solutions
+# Contact Us for Small Jobs
 
-**Ready to start your next home improvement project? We'd love to hear from you.**
+**Ready to cross items off your honey-do list? We're here to help with same-day service for most small jobs.**
 
 ## Get Your Free Estimate
 
@@ -48,13 +49,16 @@ Every project begins with a conversation. Contact us today to discuss your home 
 ## Service Areas
 
 ### Primary Service Area
-**[Your City and Surrounding Areas]**
+**Horseheads, Corning, Elmira & Immediate Areas**
+- Big Flats, Painted Post, Southport
 - Same-day estimates available
 - No travel fees
 - Fastest response times
 
 ### Extended Service Area
-**[Surrounding Communities]**
+**Chemung County & Finger Lakes Region**
+- Watkins Glen, Bath, Montour Falls
+- Wellsburg, Millport, Pine City
 - Next-day estimates
 - Minimal travel fees
 - Full service availability

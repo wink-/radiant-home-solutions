@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://radianthomesolutions.com/sitemap.xml
+
+# Priority pages for small job handyman services
+Allow: /services/
+Allow: /small-jobs/
+Allow: /contact/
+Allow: /about/
+
+# Block admin areas
+Disallow: /admin/
+Disallow: /static/admin/

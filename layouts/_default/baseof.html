@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="keywords" content="{{ if .Params.keywords }}{{ .Params.keywords }}{{ else }}{{ .Site.Params.keywords }}{{ end }}">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="generator" content="Hugo {{ hugo.Version }}">
+  
+  {{ if .IsHome }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Radiant Home Solutions",
+    "description": "Professional handyman specializing in small jobs and quick repairs in Horseheads, Corning, and Elmira NY. Same-day service for minor home fixes, installations, and maintenance. No job too small!",
+    "url": "{{ .Site.BaseURL }}",
+    "telephone": "{{ .Site.Params.phone }}",
+    "email": "{{ .Site.Params.email }}",
+    "priceRange": "$75-$300",
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": "42.1689",
+        "longitude": "-76.8200"
+      },
+      "geoRadius": "32000"
+    },
+    "areaServed": [
+      "Horseheads, NY",
+      "Corning, NY", 
+      "Elmira, NY",
+      "Big Flats, NY",
+      "Painted Post, NY",
+      "Southport, NY",
+      "Chemung County, NY"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Small Handyman Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Quick Home Repairs",
+            "description": "30-minute to 2-hour repairs including plumbing fixes, electrical work, and door adjustments"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "75",
+            "priceCurrency": "USD",
+            "description": "Starting price for quick fixes"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Small Installations",
+            "description": "Picture hanging, shelf installation, TV mounting, and bathroom accessories"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "150",
+            "priceCurrency": "USD",
+            "description": "Typical price for small installations"
+          }
+        }
+      ]
+    },
+    "openingHours": [
+      "Mo-Fr 07:00-18:00",
+      "Sa 08:00-16:00"
+    ]
+  }
+  </script>
+  {{ end }}
+  
+  {{ partial "site-style.html" . }}
+  {{ partial "site-favicon.html" . }}
+  {{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+</head>
+
+<body class="ma0 {{ $.Param "body_classes"  | default "avenir bg-near-white"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
+  {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
+  <main class="pb7" role="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ block "footer" . }}{{ partial "site-footer.html" . }}{{ end }}
+  {{ partial "site-scripts.html" . }}
+</body>
+</html>
