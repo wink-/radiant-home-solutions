@@ -1,42 +1,83 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: wink-/radiant-home-solutions
+  branch: master
 
-media_folder: "static/images/uploads"
-public_folder: "/images/uploads"
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+site_url: https://radianthomesolutions.com
+display_url: https://radianthomesolutions.com
 
 collections:
-  - name: "projects"
-    label: "Projects"
-    folder: "content/projects"
+  - name: services
+    label: Services
+    folder: content/services
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
+    summary: "{{title}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Draft", name: "draft", widget: "boolean", default: false}
-      - {label: "Service Type", name: "service_type", widget: "select", options: ["Interior", "Exterior", "Maintenance", "Emergency"]}
-      - {label: "Featured Image", name: "image", widget: "image", required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
-  
-  - name: "pages"
-    label: "Pages"
+      - label: Title
+        name: title
+        widget: string
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+      - label: Body
+        name: body
+        widget: markdown
+
+  - name: pages
+    label: Pages
     files:
-      - label: "Services"
-        name: "services"
-        file: "content/services/_index.md"
+      - label: Home Page
+        name: home
+        file: content/_index.md
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - label: "About"
-        name: "about"
-        file: "content/about.md"
+          - label: Title
+            name: title
+            widget: string
+          - label: Body
+            name: body
+            widget: markdown
+      - label: About
+        name: about
+        file: content/about.md
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - label: "Contact"
-        name: "contact"
-        file: "content/contact.md"
+          - label: Title
+            name: title
+            widget: string
+          - label: Body
+            name: body
+            widget: markdown
+      - label: Contact
+        name: contact
+        file: content/contact.md
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - label: Title
+            name: title
+            widget: string
+          - label: Body
+            name: body
+            widget: markdown
+      - label: Areas Served
+        name: areas-served
+        file: content/areas-served.md
+        fields:
+          - label: Title
+            name: title
+            widget: string
+          - label: Body
+            name: body
+            widget: markdown
+      - label: Small Jobs
+        name: small-jobs
+        file: content/small-jobs.md
+        fields:
+          - label: Title
+            name: title
+            widget: string
+          - label: Body
+            name: body
+            widget: markdown
