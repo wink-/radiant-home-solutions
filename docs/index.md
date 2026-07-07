@@ -1,3 +1,7 @@
+---
+okf_version: "0.1"
+---
+
 # Radiant Home Solutions Docs
 
 Radiant Home Solutions is a Hugo/Ananke static marketing site for local handyman and small-job repair services.
@@ -17,3 +21,8 @@ Radiant Home Solutions is a Hugo/Ananke static marketing site for local handyman
 - `hugo.toml` configures base URL, Ananke theme, menu, metadata, and markup.
 - `content/` contains service pages and local SEO content.
 - `netlify.toml` defines Netlify build behavior and Hugo version.
+
+## Resume Path
+
+- Read [status.md](status.md) for the current phase and next work.
+- Read [notes.md](notes.md) before changing contact details, CMS config, or generated output policy.
