@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import { SITE, SERVICE_AREAS } from '../site.config';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Emit the (truthful, hugo.toml-sourced) LocalBusiness JSON-LD. */
+  localBusiness?: boolean;
+}
+
+const { title, description = SITE.description, localBusiness = false } = Astro.props;
+const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+
+const areaServed = [
+  ...SERVICE_AREAS.primary.map((area) => area.town),
+  'Chemung County, NY',
+  'Southern Tier, NY',
+  'Finger Lakes Region, NY',
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  telephone: SITE.phoneDisplay,
+  email: SITE.email,
+  areaServed,
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 fill=%22%23f26a1b%22/><text y=%2272%22 x=%2250%22 font-size=%2258%22 text-anchor=%22middle%22>🔧</text></svg>" />
+    <title>{fullTitle}</title>
+    {localBusiness && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <SiteHeader />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+    <MobileCallBar />
+  </body>
+</html>

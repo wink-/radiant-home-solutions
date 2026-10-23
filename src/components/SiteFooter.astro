@@ -1,0 +1,52 @@
+---
+import { SITE, NAV, SERVICE_AREAS } from '../site.config';
+
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__brand">{SITE.name}</p>
+        <p>{SITE.description}</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/">All Services</a></li>
+          <li><a href="/services/plumbing-fixes/">Plumbing Quick Fixes</a></li>
+          <li><a href="/services/electrical-fixes/">Electrical Quick Fixes</a></li>
+          <li><a href="/services/hanging-mounting/">Hanging &amp; Mounting</a></li>
+          <li><a href="/small-jobs/">Small Jobs &amp; Honey-Do Lists</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Service Area</h4>
+        <ul>
+          {SERVICE_AREAS.primary.map((area) => (
+            <li>{area.town}</li>
+          ))}
+          <li>Chemung County &amp; the Southern Tier</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><a href={SITE.phoneHref}>{SITE.phoneDisplay}</a></li>
+          <li><a href={SITE.emailHref}>{SITE.email}</a></li>
+          <li><a href="/contact/">Contact &amp; Hours</a></li>
+        </ul>
+        <h4 style="margin-top:1.25rem">Company</h4>
+        <ul>
+          {NAV.filter((item) => item.url !== '/services/').map((item) => (
+            <li><a href={item.url}>{item.name}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p style="margin:0">© {year} {SITE.name}. All rights reserved.</p>
+      <p style="margin:0">Licensed • Insured • Local • Reliable</p>
+    </div>
+  </div>
+</footer>

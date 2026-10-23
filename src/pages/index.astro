@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, SERVICE_AREAS } from '../site.config';
+
+const services = (await getCollection('services')).sort(
+  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99),
+);
+
+const valueProps = [
+  {
+    icon: '✅',
+    title: 'No Minimum Job Size',
+    body: "We happily tackle the small repairs other contractors won't touch. From hanging a single picture to fixing a squeaky door.",
+  },
+  {
+    icon: '⚡',
+    title: 'Same-Day Service Available',
+    body: 'Many small jobs can be completed the same day you call. Perfect for urgent fixes or last-minute preparations.',
+  },
+  {
+    icon: '💰',
+    title: 'Fair, Transparent Pricing',
+    body: "Honest pricing for small jobs with no hidden fees. You'll know the cost upfront before we start.",
+  },
+  {
+    icon: '🔧',
+    title: 'Fully Equipped',
+    body: 'We arrive with all the tools and common materials needed for most small repairs and installations.',
+  },
+];
+---
+<BaseLayout
+  title="Small Job Handyman Services | Quick Home Repairs | Radiant Home Solutions"
+  description="Professional handyman specializing in small jobs and quick repairs. No job too small! Same-day service for minor home fixes, installations, and maintenance in your local area."
+  localBusiness
+>
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <h1>Small Job Specialists — <em>No Job Too Small!</em></h1>
+      <p class="hero__lead">
+        Professional handyman services for all your quick fixes and small home improvements in
+        Horseheads, Corning, Elmira, and the surrounding Southern Tier. Same-day service available.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href={SITE.phoneHref}>📞 Call {SITE.phoneDisplay}</a>
+        <a class="btn btn--ghost" href="/services/">Browse Our Services</a>
+      </div>
+      <ul class="hero__meta">
+        <li>Service calls start at $75</li>
+        <li>Same-day availability</li>
+        <li>Free estimates</li>
+        <li>No travel charges in the primary area</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="services-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What We Do</span>
+        <h2 id="services-heading">Our Handyman Services</h2>
+        <p>
+          From 30-minute quick fixes to half-day installations — the small jobs that make a big
+          difference in your home.
+        </p>
+      </div>
+      <div class="grid grid--cards">
+        {services.map((service) => (
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">{service.data.icon}</span>
+            <h3><a href={`/services/${service.id}/`}>{service.data.title}</a></h3>
+            <p>{service.data.excerpt ?? service.data.description}</p>
+            <a class="card__link" href={`/services/${service.id}/`}>Learn more</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt section--tight" aria-label="Service area">
+    <div class="wrap">
+      <span class="eyebrow">Where We Work</span>
+      <h2 style="font-size:1.5rem">Serving the Southern Tier &amp; Finger Lakes</h2>
+      <ul class="towns">
+        {SERVICE_AREAS.primary.map((area) => (
+          <li class="li--primary">{area.town}</li>
+        ))}
+        {SERVICE_AREAS.extended.map((town) => (
+          <li>{town}</li>
+        ))}
+        <li>Chemung County &amp; beyond</li>
+      </ul>
+      <p style="margin-top:1rem">
+        <a href="/service-areas/">See response times for your area →</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="why-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 id="why-heading">Why Homeowners Call Us for Small Jobs</h2>
+      </div>
+      <div class="grid grid--cards">
+        {valueProps.map((prop) => (
+          <article class="card value-card">
+            <span class="card__icon" aria-hidden="true">{prop.icon}</span>
+            <h3>{prop.title}</h3>
+            <p>{prop.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip section--tight" aria-label="Our promise">
+    <div class="wrap">
+      <p>Licensed • Insured • Local • Reliable</p>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { SITE } from '../../site.config';
+
+const services = (await getCollection('services')).sort(
+  (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99),
+);
+---
+<BaseLayout
+  title="Small Job Handyman Services | Complete Service List"
+  description="Complete list of small handyman services. From quick 30-minute fixes to half-day installations. No job too small - same day service available for most repairs."
+>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Small Job Handyman Services</h1>
+      <p>
+        Specializing in the small jobs that make a big difference in your home. Professional
+        service, fair pricing, no job too small.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--cards">
+        {services.map((service) => (
+          <article class="card">
+            <span class="card__icon" aria-hidden="true">{service.data.icon}</span>
+            <h3><a href={`/services/${service.id}/`}>{service.data.title}</a></h3>
+            <p>{service.data.description}</p>
+            <a class="card__link" href={`/services/${service.id}/`}>Learn more</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="packages-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Bundle &amp; Save</span>
+        <h2 id="packages-heading">Service Packages</h2>
+      </div>
+      <div class="grid grid--cards">
+        <article class="card">
+          <h3>"Honey-Do Special" — $150</h3>
+          <p>Choose any 3 small tasks from our quick fixes list. Perfect for tackling your weekend to-do list.</p>
+        </article>
+        <article class="card">
+          <h3>"New Homeowner Package" — $200</h3>
+          <p>Smoke detector check and battery replacement, basic safety inspection, plus 3 small repairs or installations of your choice. Great for settling into your new home.</p>
+        </article>
+        <article class="card">
+          <h3>"Seasonal Maintenance" — $125</h3>
+          <p>Comprehensive home inspection, 2 small repairs included, and a written report with recommendations. Quarterly service available.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="emergency-heading">
+    <div class="wrap">
+      <span class="eyebrow">Available 24/7</span>
+      <h2 id="emergency-heading">Emergency Small Repairs</h2>
+      <p style="max-width:46rem">
+        Available around the clock for urgent issues: water leaks causing immediate damage,
+        electrical safety hazards, broken locks or security issues, HVAC problems in extreme
+        weather, and storm damage repairs. Emergency line:
+        <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Get Started Today"
+    body="Free estimates on all services. No obligation consultations. Remember: no job is too small for professional attention."
+  />
+</BaseLayout>
