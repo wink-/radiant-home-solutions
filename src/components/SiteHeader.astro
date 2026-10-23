@@ -1,12 +1,9 @@
 ---
 import { SITE, NAV } from '../site.config';
 
-const path = Astro.url.pathname;
-
-const current = (url: string) => {
-  const p = path.endsWith('/') && path !== '/' ? path : path + '/';
-  return p === url || (url === '/' && path === '/');
-};
+const norm = (p: string) => (p.replace(/index\.html$/, '').replace(/\/+$/, '') || '/');
+const here = norm(Astro.url.pathname);
+const active = (url: string) => here === norm(url) || here.startsWith(norm(url));
 ---
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
@@ -22,7 +19,7 @@ const current = (url: string) => {
       <ul>
         {NAV.map((item) => (
           <li>
-            <a href={item.url} aria-current={current(item.url) ? 'page' : undefined}>{item.name}</a>
+            <a href={item.url} aria-current={active(item.url) ? 'page' : undefined}>{item.name}</a>
           </li>
         ))}
       </ul>

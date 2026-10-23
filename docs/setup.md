@@ -2,30 +2,44 @@
 type: Setup
 title: Setup
 description: Local setup and validation for Radiant Home Solutions.
-tags: [setup, hugo, netlify]
-timestamp: 2026-07-06T00:00:00Z
+tags: [setup, astro, hugo, netlify]
+generated:
+  by: "Astro rebuild agent (OpenCode)"
+  at: "2026-10-23T16:23:28Z"
+status: rebuilding
 ---
 
 # Setup
 
 ## Requirements
 
-- Hugo, matching the Netlify `HUGO_VERSION` when possible: `0.147.9`.
-- Git.
+- Node.js (LTS) and npm — for the Astro site.
+- Hugo `0.147.9` (matching `netlify.toml`) — only if building the legacy Hugo site.
 
-## Local Preview
+## Astro (new stack)
+
+```bash
+npm install          # once
+npm run dev          # local dev server
+npm run build        # production build to dist/
+npm run preview      # preview the production build
+```
+
+`npm run build` is the source of truth for validation; it must pass with zero warnings and zero errors.
+
+## Hugo (legacy, frozen)
 
 ```bash
 hugo server -D
+hugo --gc --minify   # outputs public/
 ```
 
-## Production Build
+Hugo files are kept untouched during the Astro rebuild; do not edit `content/`, `hugo.toml`, `layouts/`, or `themes/` for Astro work.
 
-```bash
-hugo --gc --minify
-```
+## Deployment
 
-Netlify publishes the generated `public/` directory.
+- Current `netlify.toml` still runs `hugo --gc --minify` and publishes `public/`.
+- After the Astro branch merges, repoint Netlify to build command `npm run build` with publish directory `dist/` (see `docs/status.md`).
 
 ## Lightweight Validation
 
@@ -33,5 +47,3 @@ Netlify publishes the generated `public/` directory.
 git status --short --branch
 git diff --check
 ```
-
-If Hugo is not installed, skip the Hugo build and record that limitation.
