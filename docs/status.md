@@ -4,8 +4,8 @@ title: Status
 description: Current state and next tasks for Radiant Home Solutions.
 tags: [status, roadmap]
 generated:
-  by: "Astro rebuild agent (OpenCode)"
-  at: "2026-10-23T19:01:02Z"
+  by: "Design mockup agent (OpenCode)"
+  at: "2026-10-23T20:22:19Z"
 status: rebuilding
 ---
 
@@ -41,6 +41,7 @@ Rebuilding the Hugo/Ananke site as a modern Astro 7 site, additive on branch `fe
 
 ## Last Worked On
 
+2026-10-24 - Added static design-mockup workflow under `mockups/` (gallery, homepage baseline, estimate-first CSS-only variant) — mockups + docs only, no production files.
 2026-10-23 - Added sitemap (`@astrojs/sitemap`) and canonical URLs; updated `robots.txt` sitemap reference.
 
 ## Suggested First Command

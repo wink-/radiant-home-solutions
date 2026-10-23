@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design Mockups — Radiant Home Solutions</title>
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        padding: 2.5rem 1.25rem 4rem;
+        background: #11151a;
+        color: #cfd7de;
+        font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      }
+      .wrap { max-width: 80rem; margin-inline: auto; }
+      .gallery-head { margin-bottom: 2rem; }
+      h1 { margin: 0 0 0.35rem; font-size: 1.45rem; letter-spacing: -0.01em; color: #eef2f5; }
+      .sub { margin: 0; max-width: 62rem; color: #93a1ad; font-size: 0.95rem; }
+      code {
+        background: #1c232b;
+        border: 1px solid #2b3540;
+        border-radius: 4px;
+        padding: 0.08em 0.35em;
+        font-size: 0.85em;
+        color: #d9e2ea;
+      }
+      .panel { margin: 0 0 2.5rem; }
+      .panel-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        margin-bottom: 0.4rem;
+      }
+      .panel-head h2 { margin: 0; font-size: 1.05rem; font-weight: 700; color: #eef2f5; }
+      .chip {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-radius: 999px;
+        padding: 0.18rem 0.6rem;
+        margin-right: 0.55rem;
+        vertical-align: 2px;
+      }
+      .chip--base { background: #2b3540; color: #cfd7de; }
+      .chip--variant { background: #7c3a08; color: #ffd9b8; }
+      .panel-desc { margin: 0 0 0.65rem; color: #93a1ad; font-size: 0.9rem; }
+      .open { color: #ffb26b; text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+      .open:hover { color: #ff7f2a; text-decoration: underline; }
+      iframe {
+        display: block;
+        width: 100%;
+        height: 76vh;
+        min-height: 480px;
+        border: 1px solid #2b3540;
+        border-radius: 10px;
+        background: #f5f7f9;
+      }
+      .legend {
+        border: 1px solid #2b3540;
+        border-radius: 10px;
+        padding: 1.25rem 1.5rem;
+        background: #161c23;
+      }
+      .legend h2 {
+        margin: 0 0 0.6rem;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #93a1ad;
+      }
+      .legend ul { margin: 0; padding-left: 1.2rem; }
+      .legend li { margin-bottom: 0.45rem; font-size: 0.92rem; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="gallery-head">
+        <h1>Radiant Home Solutions — Design Mockups</h1>
+        <p class="sub">
+          Static previews of homepage design directions. Every mockup uses the
+          <strong>same markup</strong> and links the real <code>src/styles/global.css</code>;
+          a variant may only add <code>variant.css</code> overrides on top.
+          Workflow rules live in <code>mockups/README.md</code>.
+        </p>
+      </header>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2><span class="chip chip--base">Baseline</span>current — homepage as shipped</h2>
+          <a class="open" href="./current/">Open full size ↗</a>
+        </div>
+        <p class="panel-desc">
+          Faithful static reproduction of the live homepage. Its <code>variant.css</code> is an
+          intentional no-op — the look comes entirely from the real global stylesheet.
+        </p>
+        <iframe src="./current/" loading="lazy" title="Baseline mockup: current homepage styling"></iframe>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2><span class="chip chip--variant">Variant</span>2026-10-24 — estimate-first</h2>
+          <a class="open" href="./2026-10-24-estimate-first/">Open full size ↗</a>
+        </div>
+        <p class="panel-desc">
+          Byte-identical markup; only <code>variant.css</code> differs. Concept: a hotter CTA
+          orange, much larger click-to-call type, a CTA band repeated after each section (band
+          copies sit <code>hidden</code> in the shared markup and are revealed by the variant CSS),
+          a larger body type scale, and higher-contrast service cards.
+        </p>
+        <iframe src="./2026-10-24-estimate-first/" loading="lazy" title="Variant mockup: estimate-first styling"></iframe>
+      </section>
+
+      <section class="legend">
+        <h2>Legend &amp; rules</h2>
+        <ul>
+          <li><strong>Baseline</strong> (<code>current/</code>) — the control: real markup, real <code>global.css</code>, no-op <code>variant.css</code>. It should always look like the live homepage.</li>
+          <li><strong>Variants</strong> (<code>YYYY-MM-DD-&lt;name&gt;/</code>) — one design variable at a time, applied CSS-only in this order: tokens → type → components → layout. Never fork <code>global.css</code>; only override.</li>
+          <li><strong>Content</strong> — real site copy only. The <code>(555) 123-4567</code> phone and the email are the existing (placeholder) values from <code>src/site.config.ts</code>; never invent contact details or prices.</li>
+          <li><strong>Promotion</strong> — adopting a variant means a <code>design/&lt;name&gt;</code> branch off <code>feature/astro-rebuild</code>, the concept applied to the real Astro components/CSS, and a PR. Verdicts are documented in <code>docs/notes.md</code>.</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

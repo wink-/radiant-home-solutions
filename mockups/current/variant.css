@@ -1,0 +1,8 @@
+/* ============================================================
+   BASELINE (current/) — intentional no-op.
+
+   This file exists so the baseline page's markup is byte-identical
+   to every variant page (each links global.css + variant.css).
+   The baseline look comes 100% from ../../src/styles/global.css.
+   Never add rules here; create a dated variant folder instead.
+   ============================================================ */

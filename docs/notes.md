@@ -4,8 +4,8 @@ title: Notes
 description: Repo-specific notes and gotchas for Radiant Home Solutions.
 tags: [notes, astro, hugo]
 generated:
-  by: "Astro rebuild agent (OpenCode)"
-  at: "2026-10-23T16:23:28Z"
+  by: "Design mockup agent (OpenCode)"
+  at: "2026-10-23T20:22:19Z"
 status: rebuilding
 ---
 
@@ -33,3 +33,11 @@ status: rebuilding
 - `netlify.toml` pins Hugo to `0.147.9` and publishes `public/`; the Astro cutover changes build command to `npm run build` and publish dir to `dist/`.
 - `robots.txt` (in `static/`) references a `sitemap.xml`; the Astro build does not generate one yet.
 - Content frontmatter historically used TOML (`+++`); Astro content uses YAML (`---`).
+
+## Design Mockup Workflow (`mockups/`)
+
+- `mockups/` holds plain static HTML design explorations (start at the dark gallery `mockups/index.html`). They are not Astro routes and never live in `public/` or `dist/` — the Astro build ignores them. Full rules: `mockups/README.md`.
+- Discipline: every mockup uses byte-identical shared markup that links the real `src/styles/global.css` plus a per-variant `variant.css` with overrides only, applied one variable at a time (tokens → type → components → layout). Real content only — including the placeholder `(555) 123-4567` phone and `info@radianthomesolutions.com` email, reused verbatim.
+- `current/` is the baseline: a faithful reproduction of the live homepage (its `variant.css` is an intentional no-op). Its shared scaffold includes repeatable copies of the real `CtaBand` markup after each section marked `hidden`, so a variant can activate layout ideas with CSS alone and the baseline still renders exactly like production.
+- Promotion path: verdict "adopt" → `design/<name>` branch off `feature/astro-rebuild` → apply the concept to the real Astro components/CSS → PR into `feature/astro-rebuild`. Mockups never ship directly.
+- **Variant `2026-10-24-estimate-first` (pending review):** intent is that a homeowner is never more than a screen away from an obvious way to call — hotter CTA orange tokens (`--orange-500: #ff5f00`), much larger click-to-call typography (phone buttons up to `1.4rem`), the CTA band repeated after each section (scaffold copies revealed via `.cta-band[hidden] { display: block; }`), a larger body type scale (`1.1875rem`), and higher-contrast service cards (2px steel borders, darker heading/body text).

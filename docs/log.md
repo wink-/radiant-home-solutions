@@ -1,5 +1,10 @@
 # Log
 
+## 2026-10-24
+
+- Added a static design-mockup workflow under `mockups/` (plain HTML; not Astro routes, outside `public/`/`dist/`): dark gallery `mockups/index.html`, `current/` baseline (byte-identical shared markup reproducing the live homepage against the real `src/styles/global.css` with a no-op `variant.css`), and `2026-10-24-estimate-first/` — a CSS-only "estimate-first" concept: hotter CTA orange tokens, bigger click-to-call typography, the CTA band repeated after each section (hidden band copies in the shared scaffold, revealed by variant CSS), larger body type scale, higher-contrast service cards.
+- Documented the workflow rules (one variable at a time, dated variant folders, real content only, `design/<name>` branch → PR promotion, verdicts in `docs/notes.md`) in `mockups/README.md`; added workflow + variant-intent notes to `docs/notes.md` and a status line. No production files changed.
+
 ## 2026-10-23
 
 - Rebuilt the site as Astro 7 on `feature/astro-rebuild` (additive; Hugo files untouched).
