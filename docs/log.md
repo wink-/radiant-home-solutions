@@ -1,0 +1,30 @@
+# Log
+
+## 2026-10-24
+
+- Added a static design-mockup workflow under `mockups/` (plain HTML; not Astro routes, outside `public/`/`dist/`): dark gallery `mockups/index.html`, `current/` baseline (byte-identical shared markup reproducing the live homepage against the real `src/styles/global.css` with a no-op `variant.css`), and `2026-10-24-estimate-first/` — a CSS-only "estimate-first" concept: hotter CTA orange tokens, bigger click-to-call typography, the CTA band repeated after each section (hidden band copies in the shared scaffold, revealed by variant CSS), larger body type scale, higher-contrast service cards.
+- Documented the workflow rules (one variable at a time, dated variant folders, real content only, `design/<name>` branch → PR promotion, verdicts in `docs/notes.md`) in `mockups/README.md`; added workflow + variant-intent notes to `docs/notes.md` and a status line. No production files changed.
+
+## 2026-10-23
+
+- Rebuilt the site as Astro 7 on `feature/astro-rebuild` (additive; Hugo files untouched).
+- Scaffolded Astro with content layer collections (`services`, `pages`) and `src/site.config.ts` as the single source of business facts.
+- Migrated Hugo content to YAML frontmatter: about, small jobs, areas served; derived 8 service pages from the Hugo services index.
+- Built conversion-focused pages: home, services index + 8 detail pages, small jobs, service areas, about, phone-first contact, 404; plain-CSS design system with sticky mobile call bar.
+- Added truthful LocalBusiness JSON-LD (name, url, description, telephone, email, areaServed) and a `/areas-served/` → `/service-areas/` redirect.
+- Pointed Astro `publicDir` at `static/` to avoid colliding with the tracked Hugo `public/` output.
+- `npm run build` passes cleanly (15 pages, no warnings). Updated architecture, setup, status, and notes docs.
+- Added `@astrojs/sitemap` (v3.7.4) to `astro.config.mjs`; builds emit `sitemap-index.xml` + `sitemap-0.xml` covering all 14 site URLs.
+- Added canonical `<link rel="canonical">` and `<link rel="sitemap" href="/sitemap-index.xml">` to `BaseLayout.astro` head; every built page now carries a canonical URL (the `/areas-served/` redirect page canonically points at `/service-areas/`).
+- Updated `static/robots.txt` sitemap reference from `/sitemap.xml` to `/sitemap-index.xml`. No RSS feed added (service site, not a blog).
+
+## 2026-07-07
+
+- Refined OKF documentation format and status resume details.
+
+## 2026-07-06
+
+- Added minimal README with project overview and marked docs links.
+- Added repo-specific agent instructions.
+- Added OKF documentation scaffold for the Hugo site.
+- 2026-10-23 — Documented intentional standalone status: not a Streetcats publication destination, not a content-platform theme.

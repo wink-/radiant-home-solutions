@@ -1,0 +1,32 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const entry = await getEntry('pages', 'about');
+if (!entry) throw new Error('Missing content: pages/about');
+const { Content } = await render(entry);
+---
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>About Radiant Home Solutions</h1>
+      <p>
+        Your local small job specialists — where no repair is too small and every customer matters.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Get Started Today"
+    body="Ready to improve your home? Free estimates, flexible scheduling, and emergency services for urgent repairs."
+  />
+</BaseLayout>

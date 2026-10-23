@@ -1,0 +1,31 @@
+---
+import { SITE, NAV } from '../site.config';
+
+const norm = (p: string) => (p.replace(/index\.html$/, '').replace(/\/+$/, '') || '/');
+const here = norm(Astro.url.pathname);
+const active = (url: string) => here === norm(url) || here.startsWith(norm(url));
+---
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="/">
+      <span class="brand__mark" aria-hidden="true">🔧</span>
+      <span>
+        {SITE.name}
+        <small>{SITE.tagline}</small>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul>
+        {NAV.map((item) => (
+          <li>
+            <a href={item.url} aria-current={active(item.url) ? 'page' : undefined}>{item.name}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <p class="header-call" style="margin:0">
+      <a class="btn btn--primary" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a>
+    </p>
+  </div>
+</header>

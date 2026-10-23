@@ -1,0 +1,55 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBand from '../../components/CtaBand.astro';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, description } = entry.data;
+
+const others = (await getCollection('services'))
+  .filter((item) => item.id !== entry.id)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+<BaseLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="wrap">
+      <p style="margin-bottom:0.25rem">
+        <a href="/services/" style="color:var(--steel-200);text-decoration:none">Services</a>
+        <span aria-hidden="true"> / </span>
+        <span style="color:var(--orange-400)">{title}</span>
+      </p>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt section--tight" aria-labelledby="other-services">
+    <div class="wrap">
+      <h2 id="other-services" style="font-size:1.4rem">Other Services</h2>
+      <ul class="towns" role="list">
+        {others.map((item) => (
+          <li><a href={`/services/${item.id}/`} style="text-decoration:none">{item.data.title}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>

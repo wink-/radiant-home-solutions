@@ -1,0 +1,110 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, SERVICE_AREAS, HOURS } from '../site.config';
+
+const entry = await getEntry('pages', 'areas-served');
+if (!entry) throw new Error('Missing content: pages/areas-served');
+const { Content } = await render(entry);
+---
+<BaseLayout title="Service Areas | Horseheads, Corning, Elmira Handyman Services" description={entry.data.description}>
+  <section class="page-hero">
+    <div class="wrap">
+      <h1>Service Areas — Southern Tier &amp; Finger Lakes</h1>
+      <p>
+        Professional small job handyman services throughout Chemung County and the surrounding
+        Southern Tier region.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="primary-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Same-Day Service Available</span>
+        <h2 id="primary-heading">Primary Service Area</h2>
+        <p>1–3 hour typical response. No travel charges. Call by 11 AM for best same-day availability.</p>
+      </div>
+      <div class="grid grid--cards">
+        {SERVICE_AREAS.primary.map((area) => (
+          <article class="card value-card">
+            <h3>{area.town}</h3>
+            <p>{area.note}</p>
+            <p style="margin:0;font-weight:700;color:var(--ok)">Response: {area.response}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="extended-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Next-Day Service</span>
+        <h2 id="extended-heading">Extended Service Area</h2>
+        <p>24-hour response with minimal travel fee for small jobs — combine multiple jobs in one visit for the best value.</p>
+      </div>
+      <ul class="towns" role="list">
+        {SERVICE_AREAS.extended.map((town) => (
+          <li>{town}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="coverage-heading">
+    <div class="wrap">
+      <div class="prose">
+        <h2 id="coverage-heading">Why Choose Local?</h2>
+        <p>
+          We know the area: local building codes and Chemung County requirements, Southern Tier
+          climate challenges, quick access to materials from local suppliers, and references from
+          neighbors you trust.
+        </p>
+        <ul>
+          <li><strong>Lake property experience</strong> — seasonal opening/closing services around the Finger Lakes.</li>
+          <li><strong>Historic home knowledge</strong> — experience with the older homes common in Elmira, Corning, and Horseheads.</li>
+          <li><strong>Rural property services</strong> — understanding of country property needs throughout the region.</li>
+          <li><strong>Seasonal readiness</strong> — prepared for harsh winters and humid summers.</li>
+        </ul>
+        <h2>Landmark Areas We Serve</h2>
+        <p>
+          Residents near the Corning Museum of Glass, Watkins Glen International, the Finger Lakes
+          wineries region, Elmira College, the Mark Twain Study historic district, and the National
+          Soaring Museum — plus historic downtowns, lakefront properties, rural farmhouses,
+          subdivisions, and senior living communities.
+        </p>
+        <h2>Not Sure About Your Area?</h2>
+        <p>
+          <strong>Call us anyway!</strong> We're always expanding our service area and may be able
+          to help or recommend a trusted local professional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="hours-heading">
+    <div class="wrap">
+      <h2 id="hours-heading">Response &amp; Availability</h2>
+      <div class="grid grid--cards">
+        {HOURS.map((row) => (
+          <article class="card">
+            <h3>{row.days}</h3>
+            <p style="font-weight:700;color:var(--navy-800);margin-bottom:0.25rem">{row.hours}</p>
+            <p style="margin:0">{row.note}</p>
+          </article>
+        ))}
+      </div>
+      <p style="margin-top:1.25rem">
+        Emergency small repairs available 24/7 throughout the service area — call
+        <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Proudly Local"
+    body="Local knowledge, local service, local trust. Licensed in New York State • Fully insured • Local references available."
+  />
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import { SITE } from '../site.config';
+
+interface Props {
+  title?: string;
+  body?: string;
+}
+
+const {
+  title = 'Ready to Cross Items Off Your List?',
+  body = 'Call for same-day service on small repairs and installations in Horseheads, Corning, Elmira, and the surrounding Southern Tier. Free estimates, no job too small.',
+} = Astro.props;
+---
+<section class="cta-band section--tight">
+  <div class="wrap cta-band__inner">
+    <div>
+      <h2>{title}</h2>
+      <p style="margin:0">{body}</p>
+    </div>
+    <div class="cta-band__actions">
+      <a class="btn btn--primary" href={SITE.phoneHref}>📞 {SITE.phoneDisplay}</a>
+      <a class="btn btn--ghost" href={SITE.emailHref}>Email Us</a>
+    </div>
+  </div>
+</section>

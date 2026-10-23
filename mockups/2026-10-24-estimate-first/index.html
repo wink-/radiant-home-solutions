@@ -1,0 +1,310 @@
+<!doctype html>
+<!--
+  STATIC DESIGN MOCKUP — not part of the Astro build (never wired into routes, public/, or dist/).
+
+  This file is the SHARED MARKUP for two mockups:
+    - mockups/current/                    (baseline: real global.css, no-op variant.css)
+    - mockups/2026-10-24-estimate-first/  (variant: same markup, estimate-first variant.css)
+
+  The two index.html files are byte-identical; variant.css is the only difference.
+  The homepage's real CTA band is kept in its real position, and repeatable copies
+  of the same real CtaBand markup sit after each section marked `hidden` so the
+  estimate-first variant can reveal them with CSS alone (no markup changes).
+  Edit both copies together. See mockups/README.md for the workflow.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Small Job Handyman Services | Quick Home Repairs | Radiant Home Solutions</title>
+    <link rel="stylesheet" href="../../src/styles/global.css" />
+    <link rel="stylesheet" href="variant.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="wrap site-header__inner">
+        <a class="brand" href="/">
+          <span class="brand__mark" aria-hidden="true">🔧</span>
+          <span>
+            Radiant Home Solutions
+            <small>Small Job Specialists - No Job Too Small!</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/small-jobs/">Small Jobs</a></li>
+            <li><a href="/service-areas/">Service Areas</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </nav>
+        <p class="header-call" style="margin:0">
+          <a class="btn btn--primary" href="tel:+15551234567">📞 (555) 123-4567</a>
+        </p>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero__inner">
+          <h1>Small Job Specialists — <em>No Job Too Small!</em></h1>
+          <p class="hero__lead">
+            Professional handyman services for all your quick fixes and small home improvements in
+            Horseheads, Corning, Elmira, and the surrounding Southern Tier. Same-day service available.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="tel:+15551234567">📞 Call (555) 123-4567</a>
+            <a class="btn btn--ghost" href="/services/">Browse Our Services</a>
+          </div>
+          <ul class="hero__meta">
+            <li>Service calls start at $75</li>
+            <li>Same-day availability</li>
+            <li>Free estimates</li>
+            <li>No travel charges in the primary area</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="services-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">What We Do</span>
+            <h2 id="services-heading">Our Handyman Services</h2>
+            <p>
+              From 30-minute quick fixes to half-day installations — the small jobs that make a big
+              difference in your home.
+            </p>
+          </div>
+          <div class="grid grid--cards">
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">🚿</span>
+              <h3><a href="/services/plumbing-fixes/">Plumbing Quick Fixes</a></h3>
+              <p>Stop wasting water today. Leaky faucets, running toilets, clogged drains, and more.</p>
+              <a class="card__link" href="/services/plumbing-fixes/">Learn more</a>
+            </article>
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">⚡</span>
+              <h3><a href="/services/electrical-fixes/">Electrical Quick Fixes</a></h3>
+              <p>Switches, outlets, doorbells, and smoke detectors — handled safely.</p>
+              <a class="card__link" href="/services/electrical-fixes/">Learn more</a>
+            </article>
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">🚪</span>
+              <h3><a href="/services/door-window-repairs/">Door &amp; Window Repairs</a></h3>
+              <p>Squeaky hinges, sticky windows, weatherstripping, and screen repairs.</p>
+              <a class="card__link" href="/services/door-window-repairs/">Learn more</a>
+            </article>
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">🧱</span>
+              <h3><a href="/services/wall-surface-repairs/">Wall &amp; Surface Repairs</a></h3>
+              <p>Hole patching, touch-up painting, trim, and cabinet adjustments.</p>
+              <a class="card__link" href="/services/wall-surface-repairs/">Learn more</a>
+            </article>
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">🖼️</span>
+              <h3><a href="/services/hanging-mounting/">Hanging &amp; Mounting</a></h3>
+              <p>TVs, mirrors, shelves, and closet systems — mounted securely.</p>
+              <a class="card__link" href="/services/hanging-mounting/">Learn more</a>
+            </article>
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">🛁</span>
+              <h3><a href="/services/bathroom-upgrades/">Bathroom Upgrades</a></h3>
+              <p>Grab bars, mirrors, towel bars, and safety rails — no remodel needed.</p>
+              <a class="card__link" href="/services/bathroom-upgrades/">Learn more</a>
+            </article>
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">🍳</span>
+              <h3><a href="/services/kitchen-improvements/">Kitchen Improvements</a></h3>
+              <p>Faucets, cabinet hardware, under-cabinet lighting, and pantry systems.</p>
+              <a class="card__link" href="/services/kitchen-improvements/">Learn more</a>
+            </article>
+            <article class="card">
+              <span class="card__icon" aria-hidden="true">📱</span>
+              <h3><a href="/services/smart-home-tech/">Smart Home &amp; Technology</a></h3>
+              <p>Thermostats, doorbell cameras, smart locks, switches, and dimmers.</p>
+              <a class="card__link" href="/services/smart-home-tech/">Learn more</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band section--tight" hidden>
+        <div class="wrap cta-band__inner">
+          <div>
+            <h2>Ready to Cross Items Off Your List?</h2>
+            <p style="margin:0">Call for same-day service on small repairs and installations in Horseheads, Corning, Elmira, and the surrounding Southern Tier. Free estimates, no job too small.</p>
+          </div>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary" href="tel:+15551234567">📞 (555) 123-4567</a>
+            <a class="btn btn--ghost" href="mailto:info@radianthomesolutions.com">Email Us</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt section--tight" aria-label="Service area">
+        <div class="wrap">
+          <span class="eyebrow">Where We Work</span>
+          <h2 style="font-size:1.5rem">Serving the Southern Tier &amp; Finger Lakes</h2>
+          <ul class="towns">
+            <li class="li--primary">Horseheads, NY</li>
+            <li class="li--primary">Corning, NY</li>
+            <li class="li--primary">Elmira, NY</li>
+            <li class="li--primary">Big Flats, NY</li>
+            <li class="li--primary">Painted Post, NY</li>
+            <li class="li--primary">Southport, NY</li>
+            <li>Watkins Glen</li>
+            <li>Bath</li>
+            <li>Montour Falls</li>
+            <li>Penn Yan</li>
+            <li>Wellsburg</li>
+            <li>Millport</li>
+            <li>Pine City</li>
+            <li>Lowman</li>
+            <li>Breesport</li>
+            <li>Erin</li>
+            <li>Chemung County &amp; beyond</li>
+          </ul>
+          <p style="margin-top:1rem">
+            <a href="/service-areas/">See response times for your area →</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="cta-band section--tight" hidden>
+        <div class="wrap cta-band__inner">
+          <div>
+            <h2>Ready to Cross Items Off Your List?</h2>
+            <p style="margin:0">Call for same-day service on small repairs and installations in Horseheads, Corning, Elmira, and the surrounding Southern Tier. Free estimates, no job too small.</p>
+          </div>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary" href="tel:+15551234567">📞 (555) 123-4567</a>
+            <a class="btn btn--ghost" href="mailto:info@radianthomesolutions.com">Email Us</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="why-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Why Choose Us</span>
+            <h2 id="why-heading">Why Homeowners Call Us for Small Jobs</h2>
+          </div>
+          <div class="grid grid--cards">
+            <article class="card value-card">
+              <span class="card__icon" aria-hidden="true">✅</span>
+              <h3>No Minimum Job Size</h3>
+              <p>We happily tackle the small repairs other contractors won't touch. From hanging a single picture to fixing a squeaky door.</p>
+            </article>
+            <article class="card value-card">
+              <span class="card__icon" aria-hidden="true">⚡</span>
+              <h3>Same-Day Service Available</h3>
+              <p>Many small jobs can be completed the same day you call. Perfect for urgent fixes or last-minute preparations.</p>
+            </article>
+            <article class="card value-card">
+              <span class="card__icon" aria-hidden="true">💰</span>
+              <h3>Fair, Transparent Pricing</h3>
+              <p>Honest pricing for small jobs with no hidden fees. You'll know the cost upfront before we start.</p>
+            </article>
+            <article class="card value-card">
+              <span class="card__icon" aria-hidden="true">🔧</span>
+              <h3>Fully Equipped</h3>
+              <p>We arrive with all the tools and common materials needed for most small repairs and installations.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band section--tight" hidden>
+        <div class="wrap cta-band__inner">
+          <div>
+            <h2>Ready to Cross Items Off Your List?</h2>
+            <p style="margin:0">Call for same-day service on small repairs and installations in Horseheads, Corning, Elmira, and the surrounding Southern Tier. Free estimates, no job too small.</p>
+          </div>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary" href="tel:+15551234567">📞 (555) 123-4567</a>
+            <a class="btn btn--ghost" href="mailto:info@radianthomesolutions.com">Email Us</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip section--tight" aria-label="Our promise">
+        <div class="wrap">
+          <p>Licensed • Insured • Local • Reliable</p>
+        </div>
+      </section>
+
+      <section class="cta-band section--tight">
+        <div class="wrap cta-band__inner">
+          <div>
+            <h2>Ready to Cross Items Off Your List?</h2>
+            <p style="margin:0">Call for same-day service on small repairs and installations in Horseheads, Corning, Elmira, and the surrounding Southern Tier. Free estimates, no job too small.</p>
+          </div>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary" href="tel:+15551234567">📞 (555) 123-4567</a>
+            <a class="btn btn--ghost" href="mailto:info@radianthomesolutions.com">Email Us</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="site-footer__grid">
+          <div>
+            <p class="site-footer__brand">Radiant Home Solutions</p>
+            <p>Professional handyman specializing in small jobs and quick repairs in Horseheads, Corning, and Elmira NY. Same-day service for minor home fixes, installations, and maintenance. No job too small!</p>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <ul>
+              <li><a href="/services/">All Services</a></li>
+              <li><a href="/services/plumbing-fixes/">Plumbing Quick Fixes</a></li>
+              <li><a href="/services/electrical-fixes/">Electrical Quick Fixes</a></li>
+              <li><a href="/services/hanging-mounting/">Hanging &amp; Mounting</a></li>
+              <li><a href="/small-jobs/">Small Jobs &amp; Honey-Do Lists</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Service Area</h4>
+            <ul>
+              <li>Horseheads, NY</li>
+              <li>Corning, NY</li>
+              <li>Elmira, NY</li>
+              <li>Big Flats, NY</li>
+              <li>Painted Post, NY</li>
+              <li>Southport, NY</li>
+              <li>Chemung County &amp; the Southern Tier</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Get In Touch</h4>
+            <ul>
+              <li><a href="tel:+15551234567">(555) 123-4567</a></li>
+              <li><a href="mailto:info@radianthomesolutions.com">info@radianthomesolutions.com</a></li>
+              <li><a href="/contact/">Contact &amp; Hours</a></li>
+            </ul>
+            <h4 style="margin-top:1.25rem">Company</h4>
+            <ul>
+              <li><a href="/small-jobs/">Small Jobs</a></li>
+              <li><a href="/service-areas/">Service Areas</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/contact/">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__legal">
+          <p style="margin:0">© 2026 Radiant Home Solutions. All rights reserved.</p>
+          <p style="margin:0">Licensed • Insured • Local • Reliable</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="call-bar">
+      <a class="btn btn--primary" href="tel:+15551234567">
+        📞 Call (555) 123-4567 — Same-Day Service
+      </a>
+    </div>
+  </body>
+</html>
