@@ -9,6 +9,9 @@
 - Added truthful LocalBusiness JSON-LD (name, url, description, telephone, email, areaServed) and a `/areas-served/` → `/service-areas/` redirect.
 - Pointed Astro `publicDir` at `static/` to avoid colliding with the tracked Hugo `public/` output.
 - `npm run build` passes cleanly (15 pages, no warnings). Updated architecture, setup, status, and notes docs.
+- Added `@astrojs/sitemap` (v3.7.4) to `astro.config.mjs`; builds emit `sitemap-index.xml` + `sitemap-0.xml` covering all 14 site URLs.
+- Added canonical `<link rel="canonical">` and `<link rel="sitemap" href="/sitemap-index.xml">` to `BaseLayout.astro` head; every built page now carries a canonical URL (the `/areas-served/` redirect page canonically points at `/service-areas/`).
+- Updated `static/robots.txt` sitemap reference from `/sitemap.xml` to `/sitemap-index.xml`. No RSS feed added (service site, not a blog).
 
 ## 2026-07-07
 

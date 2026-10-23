@@ -5,7 +5,7 @@ description: Local setup and validation for Radiant Home Solutions.
 tags: [setup, astro, hugo, netlify]
 generated:
   by: "Astro rebuild agent (OpenCode)"
-  at: "2026-10-23T16:23:28Z"
+  at: "2026-10-23T19:01:02Z"
 status: rebuilding
 ---
 
@@ -26,6 +26,8 @@ npm run preview      # preview the production build
 ```
 
 `npm run build` is the source of truth for validation; it must pass with zero warnings and zero errors.
+
+`@astrojs/sitemap` is wired up in `astro.config.mjs` (requires `site` to be set); it emits `dist/sitemap-index.xml` + `dist/sitemap-0.xml` at build time. No manual sitemap step is needed.
 
 ## Hugo (legacy, frozen)
 

@@ -5,7 +5,7 @@ description: Current state and next tasks for Radiant Home Solutions.
 tags: [status, roadmap]
 generated:
   by: "Astro rebuild agent (OpenCode)"
-  at: "2026-10-23T16:23:28Z"
+  at: "2026-10-23T19:01:02Z"
 status: rebuilding
 ---
 
@@ -23,6 +23,7 @@ Rebuilding the Hugo/Ananke site as a modern Astro 7 site, additive on branch `fe
 - Design system in plain CSS: navy/steel base, safety-orange accent, sticky header with call button, sticky mobile call bar.
 - Truthful LocalBusiness JSON-LD on the homepage (name, url, description, telephone, email, areaServed only).
 - Legacy `/areas-served/` URL redirects to `/service-areas/`; `robots.txt` and Sveltia `admin/` carried over via `publicDir: './static'`.
+- SEO basics: `@astrojs/sitemap` integration emits `sitemap-index.xml` (14 URLs); every page gets a canonical `<link>` and a `<link rel="sitemap">` in the head via `BaseLayout.astro`; `static/robots.txt` now points at `/sitemap-index.xml`.
 - `npm run build` passes cleanly: 15 pages, zero warnings.
 
 ## Next Tasks
@@ -31,7 +32,7 @@ Rebuilding the Hugo/Ananke site as a modern Astro 7 site, additive on branch `fe
 - Merge `feature/astro-rebuild` into `master`.
 - Repoint Netlify: build command `npm run build`, publish directory `dist/` (replacing the Hugo build in `netlify.toml`).
 - After a clean Netlify deploy: remove Hugo directories (`content/`, `layouts/`, `themes/`, `archetypes/`, `hugo.toml`, `public/`, `resources/`) and the Ananke submodule.
-- Optional follow-ups: add a sitemap (`@astrojs/sitemap` or a static file) since `robots.txt` references one, and update the Sveltia CMS config to point at the new content locations.
+- Optional follow-ups: update the Sveltia CMS config to point at the new content locations.
 
 ## Blockers/Risks
 
@@ -40,7 +41,7 @@ Rebuilding the Hugo/Ananke site as a modern Astro 7 site, additive on branch `fe
 
 ## Last Worked On
 
-2026-10-23 - Astro rebuild: scaffold, content migration, all pages, clean build, docs update.
+2026-10-23 - Added sitemap (`@astrojs/sitemap`) and canonical URLs; updated `robots.txt` sitemap reference.
 
 ## Suggested First Command
 

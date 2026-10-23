@@ -1,7 +1,9 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://radianthomesolutions.com/',
+  integrations: [sitemap()],
   // Hugo's generated public/ is still tracked in git and must remain untouched,
   // so Astro uses static/ (same assets Hugo copies: robots.txt + Sveltia admin).
   publicDir: './static',
