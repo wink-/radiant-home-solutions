@@ -19,3 +19,4 @@
 - Added minimal README with project overview and marked docs links.
 - Added repo-specific agent instructions.
 - Added OKF documentation scaffold for the Hugo site.
+- 2026-10-23 — Documented intentional standalone status: not a Streetcats publication destination, not a content-platform theme.

@@ -47,3 +47,9 @@ Rebuilding the Hugo/Ananke site as a modern Astro 7 site, additive on branch `fe
 ```bash
 npm install && npm run dev
 ```
+
+
+## Platform relationship (2026-10-23)
+
+Intentionally standalone: this is a local-service marketing site, not a Streetcats
+publication destination. It is not registered as a content-platform theme.
